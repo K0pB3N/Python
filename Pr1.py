@@ -34,32 +34,35 @@ def f2():
                 a = input()
                 b = input()
                 if a == 'СТОП' or b == 'СТОП':
-                        break
-                print('Выбирите действие или введите СТОП, чтобы закончить: ', play, '\n')
-                x = input()
-                print('\n')
-                print('Ваши числа: ', a, ',', b, '\n')
-                if x == '+':
-                    play.remove(x)
-                    print('Результат операции сложения:', a + b, '\n')
-                elif x == '-':
-                    play.remove(x)
-                    print('Результат операции вычитания: ', a - b, '\n')
-                elif x == '*':
-                    play.remove(x)
-                    print('Результат операции умножения: ', a * b, '\n')
-                elif x == '/':
-                    play.remove(x)
-                    print('Результат операции деления: ', a / b, '\n')
-                elif x == '**':
-                    play.remove(x)
-                    print('Результат операции возведения в степень: ', a ** b, '\n')
-                elif x == '//':
-                    play.remove(x)
-                    print('Результат операции целочисленного деления: ', a // b, '\n')
-                elif x == 'СТОП':
-                    print('Конец программы')
-                    break           
+                    break
+                else:
+                    a = float(a)
+                    b = float(b)
+                    print('Выбирите действие или введите СТОП, чтобы закончить: ', play, '\n')
+                    x = input()
+                    print('\n')
+                    print('Ваши числа: ', a, ',', b, '\n')
+                    if x == '+':
+                        play.remove(x)
+                        print('Результат операции сложения:', a + b, '\n')
+                    elif x == '-':
+                        play.remove(x)
+                        print('Результат операции вычитания: ', a - b, '\n')
+                    elif x == '*':
+                        play.remove(x) 
+                        print('Результат операции умножения: ', a * b, '\n')
+                    elif x == '/':
+                        play.remove(x)
+                        print('Результат операции деления: ', a / b, '\n')
+                    elif x == '**':
+                        play.remove(x)
+                        print('Результат операции возведения в степень: ', a ** b, '\n')
+                    elif x == '//':
+                        play.remove(x)
+                        print('Результат операции целочисленного деления: ', a // b, '\n')
+                    elif x == 'СТОП':
+                        print('Конец программы')
+                        break           
 f2()
 
 print ('\n')
