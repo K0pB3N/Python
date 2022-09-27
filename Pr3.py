@@ -27,6 +27,7 @@ def f3():
     data = px.data.gapminder().query("country=='Canada'")
     fig = go.Figure(px.bar(data, x='year', y='pop', color='pop'))
     fig.update_traces(marker=dict(line=dict(color='black', width=2)))
+    
     fig.update_layout(title='Динамика населения Канады',
                       title_y=0.96, 
                       title_x=0.5, 

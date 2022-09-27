@@ -23,22 +23,20 @@ def f1():
             break
 f1()
 
-
+print('\n')
 def f2():
     print('Второе задание')
-    print('Введите число N: ') 
+    print('Введите число n: ') 
     n = int(input())
     l = []
-    Up = 0
-    Upcheck = 0
-    while Up != n:
-        Up += 1
-        while Upcheck != Up:
-            Upcheck += 1
-            l.append(Up)
-        Upcheck = 0
-    print('Результат работы програмы: ', l)
+    for i in range(1, n):
+        while (l.count(i) != i):
+            l.append(i)
+    for i in range(0, n):
+        print(l[i], end=" ")
 f2()
+
+print('\n')
 
 def f3():
     print('Третье задание')
