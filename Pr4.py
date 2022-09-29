@@ -29,6 +29,7 @@ def f2():
 
 def f3_4_5_6():
     data = pd.read_csv('insurance.csv', sep=',')
+    
     mean_bmi = np.mean(data['bmi'])
     moda_bmi = sts.mode(data['bmi'])
     med_bmi = np.median(data['bmi'])
@@ -37,6 +38,7 @@ def f3_4_5_6():
     q1_bmi = np.percentile(data['bmi'], 25, interpolation='midpoint')
     q3_bmi = np.percentile(data['bmi'], 75, interpolation='midpoint')
     iqr_bmi = q3_bmi - q1_bmi
+    
     mean_charges = np.mean(data['charges'])
     moda_charges = sts.mode(data['charges'])
     med_charges = np.median(data['charges'])
@@ -45,6 +47,7 @@ def f3_4_5_6():
     q1_charges = np.percentile(data['charges'], 25, interpolation='midpoint')
     q3_charges = np.percentile(data['charges'], 75, interpolation='midpoint')
     iqr_charges = q3_charges - q1_charges
+    
     fig, ax = plt.subplots(2, 2, figsize=(15, 4))
     ax[0][0].hist(mean_bmi,
                 label='Среднее',
@@ -117,7 +120,7 @@ def f3_4_5_6():
     Стандартное отклонение = {std_charges}
     Размах = {raz_charges}
     Межквартальный размах = {iqr_charges}''')
-    data = pd.read_csv('insurance.csv', sep=',')
+    
     fig, ax = plt.subplots(2, 2, figsize=(15, 4))
     ax[0][0].boxplot([data['age']],
                     labels=['age'])
@@ -129,12 +132,14 @@ def f3_4_5_6():
                     labels=['charges'])
     plt.grid()
     plt.show()
+    
     means = [np.mean(randint(data['bmi'].min(), data['bmi'].max(),
                     randint(30, 100))) for i in range(300)]
     plt.hist(means)
     plt.title(
         f'Среднее = {mean(means)}\nСтандартное отклонение = {np.array(means).std()}')
     plt.show()  
+    
     print('bmi')
     SE = std_bmi / (data['bmi'].size)**0.5
     print(mean_bmi-1.96*SE, mean_bmi+1.96*SE)
