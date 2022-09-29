@@ -10,8 +10,6 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 
 
-    
-
 def f1():
     print('Задание 1: Загрузить данные из файла “insurance.csv”', '\n' 
           'С помощью метода describe() посмотреть статистику по данным. Сделать выводы.', '\n')
@@ -170,12 +168,15 @@ if __name__ == '__main__':
                 if choice == 1:
                     f1()
                     digit.remove(choice)
+                    msg_dic.pop(choice)
                 elif choice == 2:
                     f2()
                     digit.remove(choice)
+                    msg_dic.pop(choice)
                 elif choice == 3:
                     f3_4_5_6()
                     digit.remove(choice)
+                    msg_dic.pop(choice)
                 else:
                     print('Ошибка')
             else:
