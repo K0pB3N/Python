@@ -178,9 +178,10 @@ if __name__ == '__main__':
                     digit.remove(choice)
                     msg_dic.pop(choice)
                 else:
-                    print('Ошибка')
+                    print('\nОшибка')
             else:
-                print('Ошибка')
+                print('\nОшибка, данного задания более нет')
+                print('\n')
         if digit == []:
             digit = None
             print('\nВыполнено')
