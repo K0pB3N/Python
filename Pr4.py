@@ -159,10 +159,10 @@ if __name__ == '__main__':
         3: 'Задание 3 (4, 5, 6)',
     }
     digit = [1, 2, 3]
-    msg = 'Выберите задание:', digit
+    msg = 'Выберите задание или введите СТОП, чтобы завершить программу:'
     while digit != None:
         print(msg)
-        choice = input('Выберите задание: ').strip()
+        choice = input('Выберите задание из списка ' + str(digit) + ': ' ).strip()
         if choice.isdigit():
             choice = int(choice)
             if choice in msg_dic.keys():
@@ -183,4 +183,7 @@ if __name__ == '__main__':
         if digit == []:
             digit = None
             print('\nВыполнено')
+            break
+        if choice == 'СТОП':
+            print('\nПрограмма завершена')
             break
