@@ -62,11 +62,35 @@ def f3_4_5_6():
                 bins=5,
                 color='blue',
                 edgecolor='black')
+    ax[0][0].hist(moda_bmi[0],
+                label='Мода',
+                bins=5,
+                color='blue',
+                edgecolor='black')
+    ax[0][0].hist(std_bmi,
+                  label='Стандартное отклонение',
+                  bins=5,
+                  color='red',
+                  edgecolor='black')
+    ax[0][0].hist(raz_bmi,
+                  label='Размах',
+                  bins=5,
+                  color='orange',
+                  edgecolor='black')
+    ax[0][0].hist(iqr_bmi,
+                  label='Межквартальный размах',
+                  bins=5,
+                  color='purple',
+                  edgecolor='black')
+    
     ax[0][0].legend()
 
     ax[0][1].hist(mean_charges, label='Среднее', color='yellow', edgecolor='black')
     ax[0][1].hist(med_charges, label='Медиана', color='green', edgecolor='black')
     ax[0][1].hist(moda_charges[0], label='Мода', color='blue', edgecolor='black')
+    ax[0][1].hist(std_charges, label='Стандартное отклонение', color='red', edgecolor='black')
+    ax[0][1].hist(raz_charges, label='Размах откловнения', color='yellow', edgecolor='black')
+    
     ax[0][1].legend()
 
     ax[1][0].hist(raz_bmi,
@@ -139,6 +163,7 @@ def f3_4_5_6():
     plt.show()  
     
     print('bmi')
+    # По центральной предельной теореме
     SE = std_bmi / (data['bmi'].size)**0.5
     print(mean_bmi-1.96*SE, mean_bmi+1.96*SE)
     SE = std_bmi / (data['bmi'].size)**0.5
