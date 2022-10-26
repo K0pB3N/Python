@@ -33,7 +33,7 @@ def f4():
     def f5(): 
         projection = 14
         data['predict'] = data['close'].shift(-projection)
-        print("5) Предсказать значение столбца close на 14 дней вперед: ")
+        print("5) Скрыть последние 14 дней.: ")
         print(data)
         print('\n')
     f5()
@@ -43,7 +43,8 @@ def f4():
         y = DataFrame(data, columns=['predict'])
         x = np.array(x, type(float))[:-projection]
         y = np.array(y, type(float))[:-projection]
-        print("6) Разделить данные на 2 части: первые 14 строк - входные данные, остальные - выходные: ")
+        print("5) Произвести нормализацию для нормального среза." +
+              "\n" + "6) Сделать срез по 14 дням: ")
         print(y)
         print('\n')
     f6()
@@ -74,12 +75,19 @@ def f4():
         regression.fit(x, y)
         print("9) Предсказать стоимость криптовалюты за последние 14 дней с помощью функции “predict”: ")
         print(regression.predict(data[['close']][-projection:]))
+        print('\n')
+        print("10) Определить точность прогнозируемой цены закрытия с помощью функции “ score”: ")
+        print(regression.score(x, y))
     f8()
 f4()
 
+print('\n')
+print("11) Сравнить скрытые значения с предсказанными. Сделать вывод о том, насколько они схожи.")
+print('\n')
+
 def f9():
     data = pd.read_csv('housePrice.csv')
-    print("10) Загрузить данные из файла “housePrice.csv”" + "\n")
+    print("12) Загрузить данные из файла “housePrice.csv”" + "\n")
     print(data)
     print('\n')
     def f10():
@@ -87,8 +95,8 @@ def f9():
         data['Price(USD)'] = pd.to_numeric(data['Price(USD)'], errors='coerce')
         x = data['Area']
         y = data['Price(USD)']
-        print("11) Произвести предобработку. \n" +
-              "Реализовать линейную регрессию вручную, без использования библиотеки. За основу взять два признака: “Area” и “Price(USD)”: \n")
+        print("13) Произвести предобработку. \n" +
+              "14) Реализовать линейную регрессию вручную, без использования библиотеки. За основу взять два признака: “Area” и “Price(USD)”: \n")
         print(x)
         print('\n')
     f10()
@@ -97,6 +105,7 @@ def f9():
         data['Price(USD)'] = pd.to_numeric(data['Price(USD)'], errors='coerce')
         x = data['Area']
         y = data['Price(USD)']
+        
         n = np.size(x)  # количество точек
         m_x = np.mean(x)  # среднее значение векторов x и y
         m_y = np.mean(y)
@@ -105,7 +114,7 @@ def f9():
         SS_xx = np.sum(x*x) - n*m_x*m_x
         b_1 = SS_xy / SS_xx  # вычисление коэффов регрессии
         b_0 = m_y - b_1*m_x
-        print("12) Вывести угол наклона и y-перехват: \n")
+        print("15) Вывести угол наклона и y-перехват: \n")
         print(f'Коэффициенты: наклон линии регрессии = {b_1}, y-перехват = {b_0}')
         print('\n')
     f11()
@@ -127,7 +136,7 @@ def f9():
         plt.plot(x, y_pred, color='g')
         plt.xlabel('x')
         plt.ylabel('y')
-        print("13) Визуализировать линию регрессии на диаграмме рассеяния. Изменить параметр плотности с помощью команды “alpha”: \n")
+        print("16) Визуализировать линию регрессии на диаграмме рассеяния. Изменить параметр плотности с помощью команды “alpha”: \n")
         plt.show()
     f12()
 f9()
