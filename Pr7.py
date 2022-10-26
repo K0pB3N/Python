@@ -107,6 +107,7 @@ def f9():
         b_0 = m_y - b_1*m_x
         print("12) Вывести угол наклона и y-перехват: \n")
         print(f'Коэффициенты: наклон линии регрессии = {b_1}, y-перехват = {b_0}')
+        print('\n')
     f11()
     def f12():
         data['Area'] = pd.to_numeric(data['Area'], errors='coerce')
