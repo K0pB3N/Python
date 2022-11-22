@@ -4,11 +4,13 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN
 from sklearn.metrics import silhouette_score
 import plotly.graph_objects as go
-from sklearn.datasets import load_iris
+# from sklearn.datasets import load_iris
+from sklearn.datasets import load_breast_cancer
 import time
 
-data = load_iris(as_frame=True).data
+# data = load_iris(as_frame=True).data
 
+data = load_breast_cancer(as_frame=True).data
 def f1():
     print(data)
     
@@ -49,9 +51,9 @@ def f3():
     
     def f4():
         fig = go.Figure(data=[
-            go.Scatter3d(x=data['sepal length (cm)'],
-                         y=data['sepal width (cm)'],
-                         z=data['petal length (cm)'],
+            go.Scatter3d(x=data['mean radius'],
+                         y=data['mean texture'],
+                         z=data['mean perimeter'],
                         mode='markers',
                         marker_color=data['Claster'],
                         marker_size=4)
@@ -70,9 +72,9 @@ def f3():
 
     def f5():
         fig = go.Figure(data=[
-            go.Scatter3d(x=data['sepal length (cm)'],
-                         y=data['sepal width (cm)'],
-                         z=data['petal length (cm)'],
+            go.Scatter3d(x=data['mean radius'],
+                         y=data['mean texture'],
+                         z=data['mean perimeter'],
                         mode='markers',
                         marker_color=data['Claster'],
                         marker_size=4)
@@ -81,7 +83,7 @@ def f3():
     f5()
     
     start_time = time.time()
-    model3 = DBSCAN(eps=6).fit(data)
+    model3 = DBSCAN(eps=16, min_samples=12).fit(data)
     time3 = time.time() - start_time
 
     labels = model3.labels_
@@ -92,9 +94,9 @@ def f3():
 
     def f6():
         fig = go.Figure(data=[
-            go.Scatter3d(x=data['sepal length (cm)'],
-                         y=data['sepal width (cm)'],
-                         z=data['petal length (cm)'],
+            go.Scatter3d(x=data['mean radius'],
+                         y=data['mean texture'],
+                         z=data['mean perimeter'],
                         mode='markers',
                         marker_color=data['Claster'],
                         marker_size=4)
