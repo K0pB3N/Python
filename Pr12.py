@@ -8,9 +8,10 @@ from fpgrowth_py import fpgrowth
 import time
 
 data_market = pd.read_csv('Market_Basket_Optimisation.csv')
-print(data_market)
 
 def f1():
+    print(data_market)
+    print('\n')
     print(data_market.info())
     
 print('\n')
@@ -139,11 +140,10 @@ def f4():
 print('\n')
 
 data_data = pd.read_csv('data.csv')
-print(data_data)
-
-print('\n')
 
 def f5():
+    print(data_data)
+    print('\n')
     print(data_data.info())
     print('\n')
 
